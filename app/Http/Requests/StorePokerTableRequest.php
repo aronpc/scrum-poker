@@ -6,12 +6,12 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StorePokerTableRequest extends FormRequest
 {
-    public function authorize(): bool
+    final public function authorize(): bool
     {
         return true;
     }
 
-    public function rules(): array
+    final public function rules(): array
     {
         return [
             'name' => ['required', 'string', 'min:3'],

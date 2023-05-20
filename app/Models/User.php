@@ -26,9 +26,9 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     /**
-     * @return HasMany
+     * @return HasMany<PokerTable>
      */
-    public function poker_tables(): HasMany
+    final public function poker_tables(): HasMany
     {
         return $this->hasMany(PokerTable::class);
     }
