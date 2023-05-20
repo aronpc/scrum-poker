@@ -14,7 +14,12 @@
             <tr>
                 <th>{{ $table->id }}</th>
                 <td class="w-full">{{ $table->name }}</td>
-                <td></td>
+                <td>
+                    <a href="{{route('poker-table.show', $table->id)}}"
+                       class="btn btn-primary">{{ __('app.copy_link') }}</a>
+                    <button class="btn btn-primary"
+                            onclick="alert('not implemented wet')">{{ __('app.copy_link') }}</button>
+                </td>
             </tr>
         @empty
             <tr>

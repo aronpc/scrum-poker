@@ -6,8 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePokerTableRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
-use Spatie\RouteAttributes\Attributes\Post;
+use Spatie\RouteAttributes\Attributes\{Middleware, Post};
 
+#[Middleware('auth')]
 class PokerTableStoreController extends Controller
 {
     #[Post(uri: 'poker-table', name: 'poker-table.store')]

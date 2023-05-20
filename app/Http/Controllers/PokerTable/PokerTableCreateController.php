@@ -6,8 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\PokerTable;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use Spatie\RouteAttributes\Attributes\Get;
+use Spatie\RouteAttributes\Attributes\{Get, Middleware};
 
+#[Middleware('auth')]
 class PokerTableCreateController extends Controller
 {
     #[Get(uri: 'poker-table', name: 'poker-table.create')]
