@@ -13,7 +13,7 @@ return new class () extends Migration {
             $table->uuid('id')->primary();
             $table->foreignIdFor(User::class);
             $table->string('name');
-            $table->json('cards');
+            $table->json('cards')->nullable()->default(null);
             $table->enum('status', PokerTableStatusEnum::listNames())
                 ->default(PokerTableStatusEnum::OPEN->value)
                 ->index();

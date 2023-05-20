@@ -3,15 +3,20 @@
 namespace App\Http\Controllers\PokerTable;
 
 use App\Http\Controllers\Controller;
-use App\Models\PokerTable;
-use Illuminate\Http\Request;
+use App\Http\Requests\StorePokerTableRequest;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 use Spatie\RouteAttributes\Attributes\Post;
 
 class PokerTableStoreController extends Controller
 {
     #[Post(uri: 'poker-table', name: 'poker-table.store')]
-    public function __invoke(Request $request)
+    public function __invoke(StorePokerTableRequest $request): RedirectResponse
     {
-        PokerTable::query()->create($request->all());
+        Auth::user()->poker_tables()->create(
+            $request->validated()
+        );
+
+        return redirect()->to(route('poker-table.create'));
     }
 }
